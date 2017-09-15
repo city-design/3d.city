@@ -1,20 +1,4 @@
-/* micropolisJS. Adapted by Graeme McCutcheon from Micropolis.
- *
- * This code is released under the GNU GPL v3, with some additional terms.
- * Please see the files LICENSE and COPYING for details. Alternatively,
- * consult http://micropolisjs.graememcc.co.uk/LICENSE and
- * http://micropolisjs.graememcc.co.uk/COPYING
- *
- */
 var Micro = {};
-//Game
-/*Micro.nextFrame = window.requestAnimationFrame ||
-    window.webkitRequestAnimationFrame ||
-    window.mozRequestAnimationFrame ||
-    window.oRequestAnimationFrame ||
-    window.msRequestAnimationFrame ||
-    null;*/
-//Simulation
 Micro.speedPowerScan = [2, 4, 5];
 Micro.speedPollutionTerrainLandValueScan = [2, 7, 17];
 Micro.speedCrimeScan = [1, 8, 18];
@@ -23,7 +7,6 @@ Micro.speedFireAnalysis = [1, 10, 20];
 Micro.CENSUS_FREQUENCY_10 = 4;
 Micro.CENSUS_FREQUENCY_120 = Micro.CENSUS_FREQUENCY_10 * 10;
 Micro.TAX_FREQUENCY = 48;
-//MapCanvas
 Micro.MAP_WIDTH = 128;//128;//120;
 Micro.MAP_HEIGHT = 128;//128;//100;
 Micro.MAP_DEFAULT_WIDTH = Micro.MAP_WIDTH*3;
@@ -47,7 +30,7 @@ Micro.arrs = ['res', 'com', 'ind', 'crime', 'money', 'pollution'];
 var M_ARRAY_TYPE;
 if(!M_ARRAY_TYPE) { M_ARRAY_TYPE = (typeof Float32Array !== 'undefined') ? Float32Array : Array; }
 
-/*Micro.MouseBox = {
+Micro.MouseBox = {
 
     draw: function( c, pos, width, height, options ) {
         var lineWidth = options.lineWidth || 3.0;
@@ -71,7 +54,7 @@ if(!M_ARRAY_TYPE) { M_ARRAY_TYPE = (typeof Float32Array !== 'undefined') ? Float
         ctx.strokeStyle = strokeStyle;
         ctx.strokeRect(startX, startY, width, height); 
     }
-}*/
+}
 
 // MiscUtils,
 Micro.clamp = function(value, min, max) {
