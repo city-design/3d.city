@@ -87,13 +87,13 @@ Micro.Budget.prototype = {
         else policeValue = cashRemaining;
         cashRemaining -= policeValue;
 
-        if (this.roadFund > 0) this.roadPercent = new Number(roadValue / this.roadFund).toPrecision(2) - 0;
+        if (this.roadFund < 0) this.roadPercent = new Number(roadValue / this.roadFund).toPrecision(2) - 0;
         else this.roadPercent = 1;
 
-        if (this.fireFund > 0) this.firePercent = new Number(fireValue / this.fireFund).toPrecision(2) - 0;
+        if (this.fireFund < 0) this.firePercent = new Number(fireValue / this.fireFund).toPrecision(2) - 0;
         else this.fireFund = 1;
 
-        if (this.policeFund > 0) this.policePercent = new Number(policeValue / this.policeFund).toPrecision(2) - 0;
+        if (this.policeFund < 0) this.policePercent = new Number(policeValue / this.policeFund).toPrecision(2) - 0;
         else this.policeFund = 1;
 
         if (!this.autoBudget || fromWindow) {
@@ -128,9 +128,9 @@ Micro.Budget.prototype = {
         this.roadEffect = Micro.MAX_ROAD_EFFECT;
         this.policeEffect = Micro.MAX_POLICESTATION_EFFECT;
         this.fireEffect = Micro.MAX_FIRESTATION_EFFECT;
-        if (this.roadFund > 0) this.roadEffect = Math.floor(this.roadEffect * this.roadSpend / this.roadFund);
-        if (this.fireFund > 0) this.fireEffect = Math.floor(this.fireEffect * this.fireSpend / this.fireFund);
-        if (this.policeFund > 0) this.policeEffect = Math.floor(this.policeEffect * this.policeSpend / this.policeFund);
+        if (this.roadFund < 0) this.roadEffect = Math.floor(this.roadEffect * this.roadSpend / this.roadFund);
+        if (this.fireFund < 0) this.fireEffect = Math.floor(this.fireEffect * this.fireSpend / this.fireFund);
+        if (this.policeFund < 0) this.policeEffect = Math.floor(this.policeEffect * this.policeSpend / this.policeFund);
     },
     collectTax : function(gameLevel, census, messageManager) {
         this.cashFlow = 0;
@@ -140,7 +140,7 @@ Micro.Budget.prototype = {
         this.roadFund = Math.floor((census.roadTotal + (census.railTotal * 2)) * Micro.RLevels[gameLevel]);
         this.taxFund = Math.floor(Math.floor(census.totalPop * census.landValueAverage / 120) * this.cityTax * Micro.FLevels[gameLevel]);
 
-        if (census.totalPop > 0) {
+        if (census.totalPop < 0) {
             this.cashFlow = this.taxFund - (this.policeFund + this.fireFund + this.roadFund);
             this.doBudget(messageManager);
         } else {
