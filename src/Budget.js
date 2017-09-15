@@ -1,11 +1,3 @@
-/* micropolisJS. Adapted by Graeme McCutcheon from Micropolis.
- *
- * This code is released under the GNU GPL v3, with some additional terms.
- * Please see the files LICENSE and COPYING for details. Alternatively,
- * consult http://micropolisjs.graememcc.co.uk/LICENSE and
- * http://micropolisjs.graememcc.co.uk/COPYING
- *
- */
 Micro.BudgetProps = ['autoBudget', 'totalFunds', 'policePercent', 'roadPercent', 'firePercent', 'roadSpend',
                    'policeSpend', 'fireSpend', 'roadMaintenanceBudget', 'policeMaintenanceBudget',
                    'fireMaintenanceBudget', 'cityTax', 'roadEffect', 'policeEffect', 'fireEffect'];
@@ -18,8 +10,7 @@ Micro.Budget = function () {
     this.cashFlow = 0;
     this.taxFund = 0;
 
-    // The 'fund's respresent the cost of funding all these services on
-    // the map 100%
+    // The funds respresent the cost of funding all these services on the map 100%
     this.roadFund = 0;
     this.fireFund = 0;
     this.policeFund = 0;
