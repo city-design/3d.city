@@ -22,7 +22,7 @@ var storage;
 
 function debug(txt){ d.innerHTML += "<br>"+txt; }
 
-//window.onload = init;
+window.onload = init;
  
 function testMobile() {
     if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) 
@@ -36,7 +36,7 @@ function init(){
 
     storage = window.localStorage;
 
-    //cityWorker = new Worker('js/worker.city.js');
+    cityWorker = new Worker('js/worker.city.js');
     
     hub = new HUB.Base();
     view3d = new V3D.Base(isMobile);
@@ -95,7 +95,7 @@ function loadGame(atStart){
 
 function makeGameSave(gameData, key){
     window.localStorage.setItem(key, gameData);
-    console.log("game is save");
+    alert("Game Saved!");
 }
 
 function makeLoadGame(key, atStart){
@@ -106,14 +106,14 @@ function makeLoadGame(key, atStart){
     var savegame = window.localStorage.getItem(key);
     if(savegame){ 
         cityWorker.postMessage({tell:"MAKELOADGAME", savegame:savegame, isStart:isStart});
-        console.log("game is load");
+        alert("Game Loaded!");
     } else {
-        console.log("No loading game found");
+        alert("No game found.");
     }
 }
 
 function newGameMap(){
-    console.log("new map");
+    alert("Creating...");
 
     //saveTextAsFile('test', 'game is saved');
 }
