@@ -104,15 +104,10 @@ Micro.Budget.prototype = {
             }
             return;
         }
-        // Autobudget
         if (cashAvailable >= total) {
-            // We were able to fully fund services. Go ahead and spend
             this.doBudgetSpend(roadValue, fireValue, policeValue, this.cityTax, messageManager);
             return;
         }
-
-        // Uh-oh. Not enough money. Make this the user's problem.
-        // They don't know it yet, but they're about to get a budget window.
         this.autoBudget = false;
         messageManager.sendMessage(Messages.AUTOBUDGET_CHANGED, this.autoBudget);
         messageManager.sendMessage(Messages.BUDGET_NEEDED);
@@ -149,8 +144,6 @@ Micro.Budget.prototype = {
             this.cashFlow = this.taxFund - (this.policeFund + this.fireFund + this.roadFund);
             this.doBudget(messageManager);
         } else {
-            // We don't want roads etc deteriorating when population hasn't yet been established
-            // (particularly early game)
             this.roadEffect   = Micro.MAX_ROAD_EFFECT;
             this.policeEffect = Micro.MAX_POLICESTATION_EFFECT;
             this.fireEffect   = Micro.MAX_FIRESTATION_EFFECT;
