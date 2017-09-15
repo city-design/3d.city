@@ -165,5 +165,4 @@ Micro.Budget.prototype = {
     shouldDegradeRoad : function() {
         return this.roadEffect < Math.floor(15 * this.MAX_ROAD_EFFECT / 16);
     }
-
 }
