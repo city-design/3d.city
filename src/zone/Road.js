@@ -53,13 +53,10 @@ Micro.Road = function (SIM) {
 
     var doBridge = function(map, x, y, currentTile, simData) {
         if (currentTile === Tile.BRWV) {
-            // We have an open vertical bridge. Possibly close it.
             if (Random.getChance(3) && sim.spriteManager.getBoatDistance(x, y) > 340)
                 closeBridge(map, x, y, verticalDeltaX, verticalDeltaY, openVertical, closeVertical);
             return true;
         }
-        if (currentTile == Tile.BRWH) {
-            // We have an open horizontal bridge. Possibly close it.
             if (Random.getChance(3) && sim.spriteManager.getBoatDistance(x, y) > 340)
                 closeBridge(map, x, y, horizontalDeltaX, horizontalDeltaY, openHorizontal, closeHorizontal);
             return true;
@@ -68,7 +65,6 @@ Micro.Road = function (SIM) {
             if (currentTile & 1) {
                 if (x < map.width - 1) {
                     if (map.getTileValue(x + 1, y) === Tile.CHANNEL) {
-                             // We have a closed vertical bridge. Open it.
                             openBridge(map, x, y, verticalDeltaX, verticalDeltaY, closeVertical, openVertical);
                         return true;
                     }
@@ -77,8 +73,6 @@ Micro.Road = function (SIM) {
             } else {
                 if (y > 0) {
                     if (map.getTileValue(x, y - 1) === Tile.CHANNEL) {
-                            // We have a closed horizontal bridge. Open it.
-                            //openBridge(map, x, y, horizontalDeltaX, horizontalDeltaY, openVertical, closeVertical);
                             openBridge(map, x, y, horizontalDeltaX, horizontalDeltaY, closeHorizontal, openHorizontal);
                         return true;
                     }
