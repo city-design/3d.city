@@ -622,7 +622,7 @@ V3D.Base.prototype = {
         document.addEventListener( 'mouseup', this, false );
 
 
-        /*this.bigG = new THREE.PlaneBufferGeometry( 16*8, 16*8, 16*8, 16*8 );
+        /this.bigG = new THREE.PlaneBufferGeometry( 16*8, 16*8, 16*8, 16*8 );
         this.bigG.rotateX( -Math.PI * 0.5 );
 
         var qq = this.bigG.attributes.position.array;
@@ -631,7 +631,7 @@ V3D.Base.prototype = {
             var m = k * 3;
             qq[m] += this.center.x-0.5;
             qq[m+2] += this.center.z-0.5;
-        }*/
+        }
 
         //var bigm = new THREE.Mesh(this.bigG, new THREE.MeshStandardMaterial({color:0xffffff, metalness:0.8, roughness:0.3 }) );//, wireframe:true }) );
         //bigm.position.set(this.center.x-0.5, -0.1, this.center.z-0.5)
@@ -640,7 +640,7 @@ V3D.Base.prototype = {
 
         //this.scene.add(bigm);
 
-	   /* this.container.addEventListener( 'mousemove',  function(e) {_this.onMouseMove(e)} , false );
+	    this.container.addEventListener( 'mousemove',  function(e) {_this.onMouseMove(e)} , false );
 	    this.container.addEventListener( 'mousedown',  function(e) {_this.onMouseDown(e)}, false );
 	    this.container.addEventListener( 'mouseup',  function(e) {_this.onMouseUp(e)}, false );
 	    this.container.addEventListener( 'mouseout',  function(e) {_this.onMouseUp(e)}, false );
@@ -655,7 +655,7 @@ V3D.Base.prototype = {
 	        body.addEventListener( 'DOMMouseScroll',  function(e) {_this.onMouseWheel(e)}, false ); // firefox
 	    }else if( body.attachEvent ){
 	        body.attachEvent("onmousewheel" ,  function(e) {_this.onMouseWheel(e)}); // ie
-	    }*/
+	    }
 
 	    // active key
 	    if(!this.isMobile) this.bindKeys();
