@@ -526,7 +526,7 @@ V3D.Base.prototype = {
 
         if( this.isWithFog ){
 
-        	this.fog = new THREE.Fog( 0xCC7F66, 1, 100 );
+        	this.fog = new THREE.Fog( 0xFFFFFF, 1, 100 );
         	this.scene.fog = this.fog;
         
         }
@@ -2640,7 +2640,7 @@ this.industrials = [616, 625, 634, 643, 652, 661, 670, 679, 688];*/
 			if(this.spriteObjs[this.spriteLists[v]] == null) this.spriteObjs[this.spriteLists[v]] = this.addSprite( v, pos );
 
 			// underwater train
-			if(v===1 && frame===5)this.spriteObjs[this.spriteLists[v]].visible = false;
+			if(v===1 && frame===5)this.spriteObjs[this.spriteLists[v]].visible = true;
 			else this.spriteObjs[this.spriteLists[v]].visible = true;
 
 			this.spriteObjs[this.spriteLists[v]].position.lerp(pos, 0.6);
