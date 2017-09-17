@@ -8,8 +8,8 @@ var Game;
 var pcount = 0;
 var power;
 
-//var ab = new ArrayBuffer( 1 );
-//transMessage( ab, [ab] );
+var ab = new ArrayBuffer( 1 );
+transMessage( ab, [ab] );
 var trans = false;// ( ab.byteLength === 0 );
 
 self.onmessage = function (e) {
@@ -39,7 +39,7 @@ self.onmessage = function (e) {
     if( p == "MAKELOADGAME") Game.makeLoadGame(e.data.savegame, e.data.isStart);
 };
 
-/*var updateTrans = function(data){
+var updateTrans = function(data){
     if (!Game.isPaused){
         Game.simulation.needPower = [];
         Game.simulation.simFrame();
@@ -48,25 +48,25 @@ self.onmessage = function (e) {
         Game.processMessages(Game.simulation.messageManager.getMessages());
         Game.simulation.spriteManager.moveObjects();
     }
-    //Game.getTiles();
-    //Game.animatedTiles();
+    Game.getTiles();
+    Game.animatedTiles();
     Game.calculateSprites();
-    //sprite = calculateSpritesForPaint();
-    //gameCanvas.paint(mouse, sprite, isPaused);
-    //transMessage({ tell:"RUN", infos:Game.infos, sprites:Game.map.genFull() });
-    //transMessage({ tell:"RUN", infos:Game.infos, tiles:Game.tilesData, anims:Game.animsData, sprites:Game.spritesData});
+    sprite = calculateSpritesForPaint();
+    gameCanvas.paint(mouse, sprite, isPaused);
+    transMessage({ tell:"RUN", infos:Game.infos, sprites:Game.map.genFull() });
+    transMessage({ tell:"RUN", infos:Game.infos, tiles:Game.tilesData, anims:Game.animsData, sprites:Game.spritesData});
     var tilesData = data.tilesData;
     var i = tilesData.length;
     while(i--){tilesData[i] = Game.map.tilesData[i];}
 
     transMessage({ tell:"RUN", infos:Game.infos, tilesData:tilesData, anims:Game.animsData, sprites:Game.spritesData}, [tilesData.buffer]);
-};*/
+};
 
 var update = function(){
     power = null;
     if (!Game.isPaused){
         pcount++;
-        //Game.simulation.needPower = [];
+        Game.simulation.needPower = [];
         Game.simulation.simFrame();
         Game.simulation.updateFrontEnd();
 
@@ -75,7 +75,7 @@ var update = function(){
         if(pcount==30){
             pcount = 0;
             power = Game.map.powerData;
-            //power = Game.simulation.needPower;
+            power = Game.simulation.needPower;
         }
     }
     //Game.getTiles();
