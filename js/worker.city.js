@@ -135,7 +135,7 @@ CITY.Game.prototype = {
     },
     playMap: function( loading ){
         var messageMgr = new Micro.MessageManager();
-        var money = 20000;
+        var money = 100000000;
         if(this.difficulty == 1) money = 10000;
         if(this.difficulty == 2) money = 5000;
         this.gameTools = new Micro.GameTools(this.map);
